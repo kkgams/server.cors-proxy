@@ -1,0 +1,4 @@
+/build.nosync/
+/.direnv/
+/.env
+/.dev.vars
