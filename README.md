@@ -42,6 +42,8 @@ Worker bindings and local environment variables use the same CSV settings. Entry
 | `CORS_PROXY_ALLOWED_ORIGINS` | `http://127.0.0.1:8093,http://localhost:8093,https://kkgams.github.io` |
 | `CORS_PROXY_ALLOWED_HOSTS` | `github.com,release-assets.githubusercontent.com,objects.githubusercontent.com` |
 
+`wrangler.toml` explicitly sets the deployed origin allowlist to these defaults plus `https://gams-app.pages.dev`; local defaults remain unchanged. Keep production origin changes there so Worker redeployments retain them.
+
 Origins match exactly, including scheme/port. Hosts match the parsed URL's exact `host`, including non-default ports. There are no wildcards or suffix matches. URL parsing canonicalizes host case/default ports. Every redirect is validated again, with at most five redirects; redirects are never browser-visible.
 
 For local HTTP fixtures only, explicitly whitelist `localhost:<port>`, `127.0.0.1:<port>` or `[::1]:<port>`. HTTP is forbidden for every other host. HTTPS requires a whitelisted public DNS name; IP literals, loopback names, dotless names and common internal-name suffixes are rejected. Only add trusted public DNS names: this Web API handler does not resolve/pin DNS addresses, so operators must not whitelist names resolving to private infrastructure. Defaults only trust GitHub download infrastructure.
