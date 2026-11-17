@@ -58,6 +58,10 @@ Transfers stream with backpressure, bounded to **64 MiB** and **120 seconds tota
 
 `src/worker.mjs` exports `{ fetch(request, env) }` and `createProxy({ fetch, maxBytes, timeoutMs, maxRedirects })` for fixtures. `src/local.mjs` adapts Node HTTP streams to the same handler. `wrangler.toml` pins the entry and compatibility date; no Wrangler installation/deployment is included.
 
-`make clean` removes only known verification files `build.nosync/{relay.log,github-download.zip,github-direct.zip,github-headers.txt}` and the directory if empty. It refuses tracked files/symlinks and preserves unrelated files. It does not stop servers or remove `.direnv/`.
+`make clean` fully removes disposable `build.nosync/`, `tools/` and
+`gams_modules/`, including unknown verification files and unmarked downloads.
+All trees are checked before deletion; tracked paths, non-directory roots and
+symlinks (including nested/dangling links) are refused. Never store authored
+files or irreplaceable data there. It does not stop servers or remove `.direnv/`.
 
 Apache-2.0; see LICENSE and NOTICE.
