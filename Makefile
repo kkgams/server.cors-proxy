@@ -1,6 +1,8 @@
 NODE ?= node
 
-.PHONY: serve test clean
+.PHONY: all serve test clean
+all: serve
+
 serve:
 	$(NODE) src/local.mjs
 
