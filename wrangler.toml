@@ -3,4 +3,4 @@ main = "src/worker.mjs"
 compatibility_date = "2026-05-15"
 
 [vars]
-CORS_PROXY_ALLOWED_ORIGINS = "http://127.0.0.1:8093,http://localhost:8093,https://kkgams.github.io,https://gams-app.pages.dev"
+CORS_PROXY_ALLOWED_ORIGINS = "http://127.0.0.1:8093,http://localhost:8093,https://kkgams.github.io,https://gams-app.pages.dev,https://opfs-resize-preview.gams-app.pages.dev"
